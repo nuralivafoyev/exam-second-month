@@ -1,0 +1,94 @@
+header {
+    background-color: $color-light;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    position: fixed;
+    backdrop-filter: blur(10px);
+    z-index: 9;
+
+    .nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-logo {
+            color: $color-darc;
+            font-weight: 700;
+            font-size: 30px;
+        }
+        &-right{
+            display: flex;
+            align-items: center;
+            padding: 6px;
+            gap: 24px;
+
+            .line {
+                height: 24px;
+                width: 1px;
+                background-color: $color-gray;
+                opacity: 0.1;
+            }
+
+            ul {
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                
+                li {
+                    a {
+                        color: $color-gray;
+                        font-weight: 500;
+                        font-size: 16px;
+                        transition: all 0.2s ease;
+                        &:hover {
+                            color: $color-darc;
+                        }
+                    }
+                }
+            }
+
+            .nav-btns {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                input {
+                    appearance: none;
+                    cursor: pointer;
+                    width: 20px;
+                    height: 15px;
+                    z-index: 5;
+                    // background-color: red;
+                    transition: all 0.3s ease;
+
+                    &:checked + i{
+                        color: $color-gray;
+                        transform: rotate(-360deg);
+                    }
+                }
+
+                i {
+                    position: absolute;
+                    left: 0;
+                    color: $color-darc;
+
+                    
+                }
+
+                .download {
+                    background-color: $color-darc;
+                    color: $color-light;
+                    padding: 6px 16px;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                    &:hover {
+                        background-color: $color-gray;
+                    }
+                }
+            }
+        }
+    }
+}
