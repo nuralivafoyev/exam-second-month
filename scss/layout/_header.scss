@@ -7,18 +7,21 @@ header {
     padding-bottom: 16px;
     position: fixed;
     backdrop-filter: blur(10px);
-    z-index: 9;
+    z-index: 999;
 
-    .nav{
+    .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: relative;
+
         &-logo {
             color: $color-darc;
             font-weight: 700;
             font-size: 30px;
         }
-        &-right{
+
+        &-right {
             display: flex;
             align-items: center;
             padding: 6px;
@@ -35,15 +38,30 @@ header {
                 display: flex;
                 align-items: center;
                 gap: 24px;
-                
+
                 li {
+
                     a {
+                        position: relative;
                         color: $color-gray;
                         font-weight: 500;
                         font-size: 16px;
                         transition: all 0.2s ease;
-                        &:hover {
-                            color: $color-darc;
+
+                        &::after {
+                            content: "";
+                            width: 0;
+                            height: 3px;
+                            bottom: -5px;
+                            position: absolute;
+                            left: 0;
+                            border-radius: 12px;
+                            background-color: $color-darc;
+                            transition: all 0.3s ease;
+                        }
+
+                        &:hover::after {
+                            width: 100%;
                         }
                     }
                 }
@@ -63,11 +81,6 @@ header {
                     z-index: 5;
                     // background-color: red;
                     transition: all 0.3s ease;
-
-                    &:checked + i{
-                        color: $color-gray;
-                        transform: rotate(-360deg);
-                    }
                 }
 
                 i {
@@ -75,7 +88,11 @@ header {
                     left: 0;
                     color: $color-darc;
 
-                    
+
+                }
+
+                .bx-moon {
+                    display: none;
                 }
 
                 .download {
@@ -84,11 +101,153 @@ header {
                     padding: 6px 16px;
                     border-radius: 12px;
                     transition: all 0.3s ease;
+
                     &:hover {
                         background-color: $color-gray;
                     }
                 }
             }
         }
+
+       
     }
 }
+
+.toggle {
+    position: relative;
+    display: none;
+    // display: block;
+
+    // right: -11000px;
+    // top: 80px;
+    input {
+        appearance: none;
+        padding: 16px;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        // background-color: red;
+    }
+    i {
+        position: absolute;
+        top: 5px;
+        font-size: 30px;
+    }
+
+    
+}
+
+
+
+.toggle-menu {
+    position: absolute;
+    width: 70vw;
+    top: 800px;
+    .toggle-head {
+        display: flex;
+        justify-content: space-between;
+       
+    }
+}
+
+
+// dark theme
+@media (prefers-color-scheme: dark) {
+    header {
+        background-color: $bg-darc;
+
+        .nav {
+
+            &-logo {
+                color: $color-light;
+            }
+
+
+            &-right {
+
+                .line {
+                    background-color: $color-light !important;
+                    opacity: 1;
+                }
+
+                ul {
+                    li {
+                        a {
+                            color: $color-gray;
+
+                            &:hover {
+                                color: $color-light;
+
+                            }
+
+                            &::after {
+                                content: "";
+                                width: 0;
+                                height: 3px;
+                                bottom: -5px;
+                                position: absolute;
+                                left: 0;
+                                background-color: $color-light !important;
+
+                            }
+
+                            &:hover::after {
+                                width: 100%;
+                            }
+
+
+
+                        }
+                    }
+                }
+
+                .nav-btns {
+                    .bx-sun {
+                        display: none;
+                    }
+
+                    .bx-moon {
+                        display: flex;
+                        color: $color-light;
+                    }
+
+                    .download {
+                        background-color: $color-light;
+                        color: $color-darc;
+                        font-weight: 600;
+                        
+                        &:hover {
+                            background-color: $color-hover-grey;
+                        }
+                        &:active {
+                            background-color: $color-active-grey;
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 569px){
+    header {
+        .nav {
+            &-right {
+                display: none;
+            }
+
+            .toggle {
+                display: block; 
+                .toggle-head {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 70vw;
+                }
+            }
+        }
+    }
+}
+

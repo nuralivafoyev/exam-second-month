@@ -1,7 +1,7 @@
 #skills {
     background-color: $color-light;
     padding-top: 96px;
-    margin-bottom: 96px;
+    padding-bottom: 96px;
 
     .title {
 
@@ -31,6 +31,69 @@
         grid-template-columns: repeat(8, 1fr);
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
-        grid-row-gap: 48px;
+        grid-row-gap: 0px;
+
+        img {
+            transition: all 0.3s ease;
+            padding: 10px 12px;
+            border-radius: 12px;
+
+            &:hover {
+                background-color: $color-hover-grey;
+                padding: 10px 12px;
+                border-radius: 12px;
+                box-shadow: 0px 0px 10px $color-light-grey;
+                transform: scale(1.07);
+            }
+        }
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    #skills {
+        background-color: $bg-darc;
+
+        .title {
+            p {
+                color: $color-light;
+            }
+        }
+
+        img {
+            transition: all 0.3s ease;
+            padding: 10px 12px;
+
+            &:hover {
+                background-color: $color-darc;
+                padding: 10px 12px;
+                border-radius: 12px;
+                box-shadow: 0px 0px 20px #000000 inset;
+                box-shadow: 0px 0px 20px #000000;
+                transform: scale(1.06);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #skills {
+        .teachs {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    #skills {
+
+        .teachs {            
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+        }
     }
 }

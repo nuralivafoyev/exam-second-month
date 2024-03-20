@@ -73,3 +73,40 @@
 
 
 }
+
+@media (prefers-color-scheme: dark){
+
+    #experience {
+        background-color: $color-darc;
+
+        .title {
+
+            p {
+                color: $color-light !important;
+            }
+        }
+
+        .experience_card {
+            background-color: #1f2937 !important;
+
+
+            h1, li, small {
+                color: #ffffff !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px){
+    #experience {
+        
+        .experience_card {
+            width: 70% !important;
+            padding: 0 20px;
+            transform: scale(0.8);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+}

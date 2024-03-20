@@ -48,7 +48,7 @@
                 color: $color-gray;
             }
 
-            span{
+            span {
                 text-align: center;
 
                 h1 {
@@ -56,12 +56,57 @@
                     font-size: 20px;
                     color: $color-darc;
                 }
+
                 p {
                     font-weight: 400;
                     font-size: 16px;
                     color: $color-gray;
                 }
             }
+        }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #testimonials {
+        background-color: $color-darc;
+
+        .title{
+            p{
+                color: $color-light;
+            }
+        }
+
+        .card-wrapper {
+            .card {
+                background-color: $color-gray;
+
+                img {
+                    border-radius: 50%;
+                }
+
+                p {
+                    color: $color-light;
+                }
+
+                span {
+
+                    h1,
+                    small {
+                        color: $color-light;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 576px){
+    #testimonials {
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
         }
     }
 }

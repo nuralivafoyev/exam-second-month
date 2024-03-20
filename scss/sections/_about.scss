@@ -29,10 +29,12 @@
                 z-index: 2;
                 margin-right: 40px;
                 transition: all 0.8s ease-in-out;
+                // box-shadow: -40px 40px $color-gray;
 
 
                 &:hover {
                     transform: translateY(40px) translateX(-40px) scale(0.97);
+                    // box-shadow: 0px 0px $color-gray;
 
                 }
             }
@@ -79,5 +81,53 @@
             }
         }
 
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    #about {
+        background-color: $color-darc;
+
+        .aboutpg {
+
+            .about_left {
+
+                .mukhriddin {
+                    position: relative;
+                    z-index: 2;
+                    margin-right: 40px;
+                    transition: all 0.8s ease-in-out;
+                    box-shadow: -40px 40px $color-gray;
+    
+    
+                    &:hover {
+                        transform: translateY(40px) translateX(-40px) scale(0.97);
+                        box-shadow: 0px 0px $color-gray;
+    
+                    }
+                }
+            }
+
+            .about_right {
+                h1, p, ul > li
+                 {
+                    color: $color-light;
+                }
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 576px){
+    #about {
+        padding-left: 70px;
+        .aboutpg { 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
     }
 }

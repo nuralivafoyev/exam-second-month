@@ -11,19 +11,22 @@
         justify-content: space-between;
 
         .intro_left {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: start;
             gap: 48px;
             padding-top: 96px;
-                
+
             &-txt {
                 width: 768px;
+
                 h1 {
                     font-weight: 700;
                     font-size: 60px;
                     color: $color-darc;
                 }
+
                 p {
                     padding-top: 8px;
                     font-weight: 400;
@@ -31,16 +34,17 @@
                     color: $color-gray;
                 }
             }
-    
-            .intro_location{
+
+            .intro_location {
                 display: flex;
                 align-items: start;
                 flex-direction: column;
                 gap: 8px;
-    
-                small{
+
+                small {
                     display: flex;
                     align-items: center;
+                    cursor: pointer;
                 }
             }
         }
@@ -51,20 +55,111 @@
             .mukhriddin {
                 margin-right: 40px;
                 transition: all 0.8s ease-in-out;
+                position: relative;
+                z-index: 2;
+                // box-shadow: 40px 40px $color-gray;
 
-
-                &:hover{
+                &:hover {
                     transform: translateY(40px) translateX(40px) scale(0.97);
-                    
+                    // box-shadow: 0px 0px $color-gray;
                 }
             }
 
-            .mukhriddin-bg{
+            .mukhriddin-bg {
                 position: absolute;
                 left: 40px;
-                z-index: -1;
+                z-index: 0;
                 top: 40px;
+                // display: none;
+            }
+        }
+    }
+}
 
+@media (prefers-color-scheme: dark) {
+    #intro {
+        background-color: $bg-darc;
+
+        .intro_left {
+
+            .intro_left-txt {
+
+                h1,
+                p {
+                    color: $color-light;
+                }
+            }
+
+            .intro_location {
+
+                small {
+                    color: $color-light;
+
+                }
+            }
+
+            .intro_icons {
+                a {
+                    img {
+                        background-color: $color-light;
+                        border-radius: 8px;
+                        transition: all 0.3s ease;
+                    }
+
+                    &:hover img {
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+        }
+
+        .intro_right {
+            z-index: 3;
+
+        }
+
+        .mukhriddin {
+            margin-right: 40px;
+            transition: all 0.8s ease-in-out;
+            position: relative;
+            z-index: 2;
+            box-shadow: 40px 40px $color-gray;
+
+            &:hover {
+                transform: translateY(40px) translateX(40px) scale(0.97);
+                box-shadow: 0px 0px $color-gray;
+            }
+        }
+
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    #intro {
+        .container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            justify-content: center;
+            padding-left: 50px;
+
+            .intro_right {
+                .mukhriddin {
+                    left: 40px;
+                    transform: scale(0.9);
+                    top: 20px;
+                    // margin-right: -20px;
+                    transition: all 0.8s ease-in-out;
+                    position: relative;
+                    z-index: 2;
+
+                    &:hover {
+                        transform: scale(0.8);
+                        top: 40px;
+                    }
+                }
             }
         }
     }
